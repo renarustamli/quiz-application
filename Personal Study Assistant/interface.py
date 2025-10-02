@@ -60,21 +60,27 @@ class QuizApp:
         self.show_question()
 
     def show_question(self):
+        """Fetch and display a new quiz question with multiple choice answers."""
+        #If we've asked all questions, finish the quiz
         if self.q_num >= self.total_questions:
             self.end_quiz()
             return
+
+        #Reset state for new question
 
         self.time_left = self.time
         self.selected = False
 
         self.clear_screen()
 
+        #Fetch question from the Open Trivia DB API
         try:
             r = requests.get("https://opentdb.com/api.php", params={
                 "amount": 1, "category": self.category, "type": "multiple"
             })
             qdata = r.json().get("results", [])[0]
         except:
+            #Retry if something went wrong
             self.show_question()
             return
 
@@ -84,10 +90,11 @@ class QuizApp:
         random.shuffle(options)
 
         self.q_num += 1
-
+        
+        #Display the question
         Label(self.root, text=html.unescape(qdata['question']),
               wraplength=550, font=("Arial", 14), bg="#FFF1E6").pack(pady=15)
-
+        #Create answer buttons
         self.answer_buttons = []
         for opt in options:
             btn = Button(self.root, text=opt, font=("Arial", 12), width=50,
@@ -100,6 +107,7 @@ class QuizApp:
 
         self.timer_label = Label(self.root, text="", bg="#FFF1E6")
         self.timer_label.pack()
+        #Start countdown
         self.update_timer()
 
     def check_answer(self, ans):
