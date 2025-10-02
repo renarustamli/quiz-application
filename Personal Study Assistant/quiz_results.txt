@@ -1,0 +1,25 @@
+Category: History
+Correct: 3, Incorrect: 2
+----------------------------
+Category: General Knowledge
+Correct: 3, Incorrect: 3
+----------------------------
+Category: History
+Correct: 1, Incorrect: 7
+----------------------------
+Category: Mathematics
+Correct: 4, Incorrect: 4
+
+Category: Science: Computers
+Correct: 3, Incorrect: 7
+----------------------------
+Category: Mathematics
+Correct: 3, Incorrect: 6
+----------------------------
+Category: General Knowledge
+Correct: 4, Incorrect: 6
+----------------------------
+Category: Science: Computers
+Correct: 4, Incorrect: 5
+----------------------------
+Correct: 1, Wrong: 9
